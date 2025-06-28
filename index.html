@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Yassel Gorrin</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="https://use.typekit.net/xfd1ftm.css">
+</head>
+<body>
+  <div class="main-content">
+    <div id="navbar" class="navbar"></div>
+      <div class="carousel-container">
+        <div class="carousel">
+          <button class="carouselb" id="prevBtn">&#10094;</button>
+            <div class="carousel-images">
+              <div class="carousel-item">
+                <img src="images/profile_pic copy.JPG" alt="Image 1">
+              </div>
+              <div class="carousel-item">
+                <img src="images/IMG_0097.JPG" alt="Image 2">
+              </div>
+              <div class="carousel-item">
+                <img src="images/000042560016.jpeg" alt="Image 3">
+              </div>
+            </div>
+          <button class="carouselb" id="nextBtn">&#10095;</button>
+        </div>
+      </div>
+      <!-- About Section -->
+      <section class="about-section">
+        <div class="about-section-content">
+            <h1>ABOUT ME</h1>
+            <p>
+                Hello, my name is Yassel Gorrin. I am a Graphic Designer and Front-End Developer based in Miami, Florida. I've studied graphic design since high school and graduated from New World School of the Arts with my bachelor's in 2025 and have been working in the field for the last 5 years. I hold creativity & innovation to a high regard and think design/art has the power to change the world. My mission as a designer is to connect people and inspire others through my work. I am always looking for new challenges and opportunities to grow as a designer. When I'm not designing, I'm typically engaging in varieties of physical activities, reading, or spending quality time with my loved ones.
+            </p>
+        </div>
+    </section>
+  </div>
+  <section id="portfolio-nav">
+    <!-- Main Category Tabs -->
+    <div class="main-tabs">
+      <button data-tab="logos" class="active">Logos</button>
+      <button data-tab="Layout">Layout</button>
+      <button data-tab="web">Web</button>
+    </div>
+  
+    <!-- Sub-Navigation (Project Lists) -->
+    <div class="sub-tabs">
+
+      <!-- Logos Projects -->
+      <div class="tab-content active" id="logos">
+        <div class="grid">
+          <a href="#" data-images="logos/Fisherman-2025.jpg,logos/Yasselgorrin-2025.jpg,logos/Diskoteka-2025.jpg,logos/Subordinary-2025.jpg,logos/bsp-2024.jpg,logos/Bestfizzle-2024.jpg,logos/Cft-2024.jpg,logos/Grapefruit-2024.jpg,logos/Licorice-2024.jpg,logos/oxygennightclub-2024.jpg,logos/oxygenenviroment-2024.jpg,logos/Peace-2024.jpg,logos/QuestionHead-2024.jpg,logos/Scrollcompay-2024.jpg,logos/Slivervibe-2024.jpg,logos/Subordinary-2024.jpg">ALL</a>
+          <a href="#" data-images="logos/Fisherman-2025.jpg,logos/Yasselgorrin-2025.jpg,logos/Diskoteka-2025.jpg,logos/Subordinary-2025.jpg">2025</a>
+          <a href="#" data-images="logos/bsp-2024.jpg,logos/Bestfizzle-2024.jpg,logos/Cft-2024.jpg,logos/Grapefruit-2024.jpg,logos/oxygennightclub-2024.jpg,logos/oxygenenviroment-2024.jpg,logos/Peace-2024.jpg,logos/QuestionHead-2024.jpg,logos/Scrollcompay-2024.jpg,logos/Slivervibe-2024.jpg,logos/Subordinary-2024.jpg">2024</a>
+        </div>
+        <div class="work-display" id="work-display">
+          <img src="logos/Fisherman-2025.jpg" alt="Selected Work" id="work-image">
+          <img src="logos/Yasselgorrin-2025.jpg" alt="Selected Work" id="work-image">
+          <img src="logos/Diskoteka-2025.jpg" alt="Selected Work" id="work-image">
+          <img src="logos/Subordinary-2025.jpg" alt="Selected Work" id="work-image">
+          <img src="logos/bsp-2024.jpg" alt="Selected Work" id="work-image">
+          <img src="logos/Bestfizzle-2024.jpg" alt="Selected Work" id="work-image">
+          <img src="logos/Cft-2024.jpg" alt="Selected Work" id="work-image">
+          <img src="logos/Grapefruit-2024.jpg" alt="Selected Work" id="work-image">
+          <img src="logos/Licorice-2024.jpg" alt="Selected Work" id="work-image">
+          <img src="logos/oxygennightclub-2024.jpg" alt="Selected Work" id="work-image">
+          <img src="logos/oxygenenviroment-2024.jpg" alt="Selected Work" id="work-image">
+          <img src="logos/Peace-2024.jpg" alt="Selected Work" id="work-image">
+          <img src="logos/QuestionHead-2024.jpg" alt="Selected Work" id="work-image">
+          <img src="logos/Scrollcompay-2024.jpg" alt="Selected Work" id="work-image">
+          <img src="logos/Slivervibe-2024.jpg" alt="Selected Work" id="work-image">
+          <img src="logos/Subordinary-2024.jpg" alt="Selected Work" id="work-image">
+        </div>
+      </div>
+  
+      <!-- Layout Projects -->
+      <div class="tab-content" id="Layout">
+        <div class="grid">
+          <a href="#" data-project="fisherman">Fisherman Album Cover</a>
+          <a href="#" data-project="museum">Museum Identity</a>
+        </div>
+        <div class="work-display">
+          <!-- Fisherman Project Container -->
+          <div class="project-container" id="fisherman" style="display: none;">
+            <img src="layout/Fisherman/Artboard 1.jpg" alt="Fisherman Album Cover">
+            <h3>Fisherman Album Cover</h3>
+            <p>This is an album cover designed for the Fisherman project.</p>
+          </div>
+
+          <!-- Museum Project Container -->
+          <div class="project-container" id="museum" style="display: none;">
+            <img src="images/branding2.jpg" alt="Museum Identity">
+            <h3>Museum Identity</h3>
+            <p>A branding project for a modern art museum.</p>
+          </div>
+        </div>
+      </div>
+  
+      <!-- Web Projects -->
+      <div class="tab-content" id="web">
+        <div class="grid">
+          <a href="#" data-image="images/web1.jpg">Artist Portfolio</a>
+          <a href="#" data-image="images/web2.jpg">E-Commerce Layout</a>
+        </div>
+        <div class="work-display">
+          <img src="images/web1.jpg" alt="Selected Work" id="work-image">
+        </div>
+      </div>
+  
+    </div>
+  </section>
+<script src="java/script.js"></script>
+</body>
+<footer>
+    <div class="contact-section">
+      <h2>CONTACT ME</h2>
+      <form action="https://formspree.io/f/xovdryen" method="POST">
+        <input type="text" name="name" placeholder="Your Name" required>
+        <input type="email" name="email" placeholder="Your Email" required>
+        <textarea name="message" placeholder="Your Message" required></textarea>
+        <button class="contactb" type="submit">Send Message</button>
+      </form>
+    </div>
+  </footer>  
+</html>
