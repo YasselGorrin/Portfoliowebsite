@@ -74,46 +74,6 @@ document.addEventListener("DOMContentLoaded", function () {
     updateCarousel();
     startAutoScroll();
   });
-  
-
-// JavaScript code for the image modal
-  document.addEventListener("DOMContentLoaded", function () {
-    const modal = document.getElementById("image-modal");
-    const modalImage = document.getElementById("modal-image");
-    const closeModal = document.querySelector(".modal .close");
-    const imageContainers = document.querySelectorAll(".album-container img");
-  
-    // Open modal when an image is clicked
-    imageContainers.forEach((img) => {
-      img.addEventListener("click", function () {
-        modal.style.display = "flex"; // Show the modal
-        modalImage.src = this.src; // Set the modal image source
-      });
-    });
-  
-    // Check if closeModal exists before adding the event listener
-    if (closeModal) {
-      closeModal.addEventListener("click", function () {
-        modal.style.display = "none";
-      });
-    } else {
-      console.error("Close button not found in the DOM.");
-    }
-  
-    // Close modal when clicking outside the image
-    modal.addEventListener("click", function (e) {
-      if (e.target === modal) {
-        modal.style.display = "none";
-      }
-    });
-  
-    // Close modal when pressing the Escape key
-    document.addEventListener("keydown", function (e) {
-      if (e.key === "Escape") {
-        modal.style.display = "none";
-      }
-    });
-  });
 
 // Javascript code for Navbar
 
@@ -163,35 +123,44 @@ document.addEventListener("DOMContentLoaded", function () {
         });
 });
 // JavaScript code for Navbar hide on scroll
-  document.addEventListener("DOMContentLoaded", () => {
-    const navbar = document.getElementById("navbar");
-    let lastScrollY = window.scrollY; // Track the last scroll position
+document.addEventListener("DOMContentLoaded", () => {
+  const navbar = document.getElementById("navbar");
+  let lastScrollY = window.scrollY; // Track the last scroll position
 
-    window.addEventListener("scroll", () => {
-        const currentScrollY = window.scrollY;
+  if (!navbar) {
+      console.error("Navbar element not found in the DOM.");
+      return;
+  }
 
-        // Check if scrolling down
-        if (currentScrollY > lastScrollY && currentScrollY > 100) {
-            navbar.classList.add("hidden"); // Hide navbar
-        } 
-        // Check if scrolling up
-        else if (currentScrollY < lastScrollY) {
-            navbar.classList.remove("hidden"); // Show navbar
-        }
+  window.addEventListener("scroll", () => {
+      const currentScrollY = window.scrollY;
+      const windowHeight = window.innerHeight;
+      const documentHeight = document.body.offsetHeight;
 
-        // Prevent hiding at the top of the page
-        if (currentScrollY === 0) {
-            navbar.classList.remove("hidden");
-        }
+      // Always show the navbar when at the top of the page
+      if (currentScrollY === 0) {
+          navbar.classList.remove("hidden");
+          return; // Exit early to avoid further checks
+      }
 
-        // Prevent showing at the bottom of the page
-        if ((window.innerHeight + window.scrollY) >= document.body.offsetHeight) {
-            navbar.classList.add("hidden");
-        }
+      // Always hide the navbar when at the bottom of the page
+      if (currentScrollY + windowHeight >= documentHeight) {
+          navbar.classList.add("hidden");
+          return; // Exit early to avoid further checks
+      }
 
-        lastScrollY = currentScrollY; // Update the last scroll position
-      });
-    });
+      // Check if scrolling down
+      if (currentScrollY > lastScrollY && currentScrollY > 100) {
+          navbar.classList.add("hidden"); // Hide navbar
+      } 
+      // Check if scrolling up
+      else if (currentScrollY < lastScrollY) {
+          navbar.classList.remove("hidden"); // Show navbar
+      }
+
+      lastScrollY = currentScrollY; // Update the last scroll position
+  });
+});
 
     // JavaScript code for Porfolio Tabs
 
@@ -257,6 +226,33 @@ document.addEventListener("DOMContentLoaded", function () {
         });
     });
 });
+// Select all buttons in the "Logo Projects" section
+const logoButtons = document.querySelectorAll('#logos .grid a');
+
+// Select the container where images are displayed
+const logoWorkDisplay = document.querySelector('.logo-work-display');
+
+// Add click event listeners to each button
+logoButtons.forEach(button => {
+    button.addEventListener('click', function (event) {
+        event.preventDefault(); // Prevent default link behavior
+
+        // Get the data-images attribute of the clicked button
+        const images = this.getAttribute('data-images').split(',');
+
+        // Clear the current images in the display
+        logoWorkDisplay.innerHTML = '';
+
+        // Add new images to the display
+        images.forEach(imageSrc => {
+            const img = document.createElement('img');
+            img.src = imageSrc;
+            img.alt = 'Selected Work';
+            img.id = 'work-image';
+            logoWorkDisplay.appendChild(img);
+        });
+    });
+});
 
 // JavaScript code for project display in Layout tab
 document.addEventListener("DOMContentLoaded", () => {
@@ -279,4 +275,78 @@ document.addEventListener("DOMContentLoaded", () => {
             }
         });
     });
+});
+// JavaScript code for project container display
+document.querySelectorAll('.grid a').forEach(link => {
+  link.addEventListener('click', function (e) {
+      e.preventDefault(); // Prevent default link behavior
+
+      // Get the target project ID from the data attribute
+      const targetId = this.getAttribute('data-project');
+
+      // Hide all project containers
+      document.querySelectorAll('.project-container').forEach(container => {
+          container.classList.remove('active');
+      });
+
+      // Show the selected project container
+      const targetContainer = document.getElementById(targetId);
+      if (targetContainer) {
+          targetContainer.classList.add('active');
+      }
+  });
+});
+// JavaScript code for project display in Web tab
+document.addEventListener("DOMContentLoaded", () => {
+  const webProjectLinks = document.querySelectorAll("#web .grid a"); // Select links in the "Web" tab
+  const webProjectContainers = document.querySelectorAll("#web .project-container"); // Select containers in the "Web" tab
+
+  webProjectLinks.forEach(link => {
+      link.addEventListener("click", (e) => {
+          e.preventDefault();
+
+          const targetProject = link.getAttribute("data-project");
+
+          // Hide all project containers in the "Web" tab
+          webProjectContainers.forEach(container => {
+              container.style.display = "none";
+          });
+
+          // Show the selected project container
+          const targetContainer = document.getElementById(targetProject);
+          if (targetContainer) {
+              targetContainer.style.display = "block";
+          }
+      });
+  });
+});
+
+document.addEventListener("DOMContentLoaded", () => {
+  // Get the modal elements
+  const modal = document.getElementById("image-modal");
+  const modalImg = document.getElementById("modal-image");
+  const captionText = document.getElementById("caption");
+  const closeBtn = document.querySelector(".close");
+
+  // Add click event to all images in the portfolio-nav
+  const images = document.querySelectorAll("#portfolio-nav img");
+  images.forEach((img) => {
+    img.addEventListener("click", () => {
+      modal.style.display = "block";
+      modalImg.src = img.src; // Set the modal image source
+      captionText.textContent = img.alt; // Set the caption text
+    });
+  });
+
+  // Close the modal when the close button is clicked
+  closeBtn.addEventListener("click", () => {
+    modal.style.display = "none";
+  });
+
+  // Close the modal when clicking outside the image
+  modal.addEventListener("click", (e) => {
+    if (e.target === modal) {
+      modal.style.display = "none";
+    }
+  });
 });
