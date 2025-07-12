@@ -14,13 +14,13 @@ body::before {
   left: 0;
   width: 100%;
   height: 100%;
-  background-color: rgba(0, 0, 0, 0.5); /* Black overlay with 50% opacity */
+  background-color: rgb(0,0,0,0.9);
   z-index: -1; /* Ensure it stays behind other content */
   pointer-events: none; /* Prevent interaction with the overlay */
 }
 html {
     scroll-behavior: smooth;
-    background: url(../Images/000071560037.jpeg);
+    background-image: url("../images/background2.jpg");
     background-size:contain; /* Cover the entire viewport */
     background-position: center; /* Center the background image */
     position: relative; /* Required for the pseudo-element */
@@ -163,9 +163,10 @@ html {
     font-family: "superclarendon", serif;
     font-weight: 900;
     font-style: italic;
-    font-size: 2rem;
-    margin-bottom: 15px;
-    color: #ffffff;
+    font-size: 10rem;
+    margin-top: -15px;
+    margin-bottom: -50px;
+    color: #ffca15;
 }
 .about-section p {
     font-family: "superclarendon", serif;
@@ -175,17 +176,38 @@ html {
     line-height: 1.5;
     color: #ffffff;
 }
+section.about-section div.about-section-content p b#R{
+  font-family: "superclarendon", serif;
+  font-weight: 600;
+  font-size: 1.2rem;
+  line-height: 1.5;
+  color: #f04e4a;
+}
+section.about-section div.about-section-content p b#Y{
+  font-family: "superclarendon", serif;
+  font-weight: 600;
+  font-size: 1.2rem;
+  line-height: 1.5;
+  color: #ffca15;
+}
+section.about-section div.about-section-content p b#B{
+  font-family: "superclarendon", serif;
+  font-weight: 600;
+  font-size: 1.2rem;
+  line-height: 1.5;
+  color: #0068ca;
+}
 
 
 /* Portfolio Section Styling */
 #portfolio-nav {
-    background: #111;
-    color: #eee;
-    padding: 3rem; /* Add padding to the top, bottom, left, and right */
-    border-radius: 15px; /* Add curves to the border */
-    margin-left: 100px; /* Optional: Add some margin around the section */
-    margin-right: 100px; /* Optional: Add some margin around the section */
-    max-width: 90%; /* Optional: Limit the width for better alignment */
+    background: #ffffff;
+    color: #000000;
+    padding-left: 6rem;
+    padding-right: 6rem; 
+    padding-top: 5rem; 
+    padding-bottom: 5rem;
+    max-width: 100%; /* Optional: Limit the width for better alignment */
     margin-top: 50px; /* Add space below the navbar */
   }
   /* Main Tabs Styling */
@@ -193,36 +215,37 @@ html {
     display: flex;
     gap: 1rem;
     margin-bottom: 1rem;
-    border-bottom: 2px solid #ccc; /* Add a line below the main tabs */
+    border-bottom: 2.5px solid #000000; /* Add a line below the main tabs */
     padding-bottom: 0.5rem; /* Add some spacing between the tabs and the line */
   }
   .main-tabs button {
     background: transparent;
     border: none;
     padding: 0.5rem 1rem;
-    color: #ccc;
+    color: #000000;
     cursor: pointer;
     font-family: "superclarendon", serif;
     font-weight: 700;
     font-style: italic;
-    font-size: 1.125rem;
+    font-size: 1.5rem;
   }
   .main-tabs button:hover {
-    color: rgb(122, 16, 10);
+    color: #f04e4a;
     background: transparent;
   }
   .main-tabs button.active {
     background: transparent;
-    color: rgb(255, 40, 28);
+    color: #f04e4a;
   }
   /* Sub Tabs Styling */
   .sub-tabs {
-    border-bottom: 2px solid #ccc; /* Add a line below the sub-tabs */
+    border-bottom: 2.5px solid #000000; /* Add a line below the sub-tabs */
     padding-bottom: 0.5rem; /* Add some spacing between the tabs and the line */
     margin-bottom: 1.5rem; /* Optional: Add spacing below the sub-tabs */
     font-family: "superclarendon", serif;
     font-weight: 700;
     font-style: italic;
+    font-size: 1.5rem
   }
   .sub-tabs .tab-content {
     display: none;
@@ -231,26 +254,40 @@ html {
     display: block;
   }
   .grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
-    gap: 1rem;
+    display: flex;
+    gap: 4rem;
     padding: 0 13px 13px 13px;
-    border-bottom: 2px solid #ccc; /* Add a line below the sub-tabs */
+    border-bottom: 2.5px solid #000000; /* Add a line below the sub-tabs */
+  }
+  #layout-grid.grid {
+    display: block;
+    gap: 4rem;
+    min-width: 200px; /* Ensure the grid has a minimum width */
+    padding: 0 13px 13px 13px;
+    border-bottom: 2px solid #000000; /* Add a line below the sub-tabs */
+    font-size: 1.25rem;
+  }
+  #layout-grid.grid a {
+    padding-right: 1rem;
+    max-width: 200px; /* Limit the width of each link */
+    display: inline-block; /* Allow links to be treated as blocks */
   }
   .grid a {
-    color: #aaa;
+    color: #000000;
     text-decoration: none;
   }
   .grid a:hover {
-    color: rgb(255, 40, 28);
+    color: #ffca15;
   }
   /* Logo Work Display Styling */
   .logo-work-display {
     padding-top: 13px;
+    padding-left: 22.5px;
+    padding-right: 22.5px;
   }
   .logo-work-display img {
     margin: 10px;
-    max-width: 200px;
+    max-width: 215px;
   }
   /* Project Container Styling */
   .project-container {
@@ -298,15 +335,17 @@ html {
     font-size: 2rem;
     color: #ffffff;
     margin: 0;
+    color: #000000;
   }
   .project-description {
-    font-size: 0.8rem;
+    font-size: 0.9rem;
     color: #ffffff;
     line-height: 1.5;
     margin-top: 0;
     font-family: "superclarendon", serif;
     font-weight: 500;
     font-style: normal;
+    color: #000000;
   }
   .image-row {
     width: 100%; /* Ensure the header row takes up the full width */
@@ -541,7 +580,7 @@ html {
 
 /* Footer styles */
 footer {
-    background-color: transparent;
+    background-color: #0068ca;
     color: white;
     text-align: center;
     padding: 90px 20px;
@@ -579,14 +618,14 @@ input, textarea {
     width: 100%;
   }
 .contactb {
-    background-color: rgb(255, 40, 28);
+    background-color: #ffca15;
     color: white;
     padding: 10px;
     border: none;
     cursor: pointer;
   }
 .contactb:hover {
-    background-color: rgb(122, 16, 10);
+    background-color: #b9910f;
   }
 
 
