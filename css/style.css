@@ -639,21 +639,28 @@ input, textarea {
     top: 0;
     width: 100%;
     z-index: 1000;
-    justify-content: space-between;
+    justify-content: center;
     align-items: center;
     background-color: transparent;
-    padding: 5px 10px;
     height: 50px;
     transition: transform 0.3s ease-in-out;
   }
   .navbar.hidden {
-    transform: translateY(-100%);
+    transform: translateY(-200%);
+  }
+  .logo {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding-left: 8rem;
+    padding-top: 5%;
   }
   .logo img {
-    width: 20%;
+    width: 50%;
+    padding: 0%;
   }
   .nav-links {
-    display: flex;
+    display: none;
     list-style: none;
     font-family: "superclarendon", serif;
     font-weight: 700;
@@ -685,29 +692,35 @@ input, textarea {
     display: flex;
     flex-direction: column;
     gap: 20px;
-    padding: 10px;
+    padding: 0px;
   }
 
   /* Carousel Styling */
   .carousel-container {
     width: 100%;
-    height: 250px;
+    max-width: 100%;
+    height: 50px;
+    padding: 0; /* Remove padding */
+    margin: 0;
   }
   .carousel {
-    position: relative;
-    overflow: hidden;
     width: 100%;
     height: 100%;
+    position: relative;
+    overflow: hidden;
+    margin: 0;
   }
   .carousel-images {
     display: flex;
     transition: transform 0.5s ease-in-out;
+    width: 100%;
     height: 100%;
   }
   .carousel-item img {
     width: 100%;
     height: 100%;
     object-fit: cover;
+    display: block;
   }
   .carouselb {
     position: absolute;
@@ -729,17 +742,24 @@ input, textarea {
 
   /* About Section Styling */
   .about-section {
-    width: 100%;
+    width: 100vw;
+    max-width: 100%;
     padding: 10px;
+    margin: 0;
+  }
+  .about-section-content {
+    width: 100%; /* Ensure the content takes up the full width */
+    text-align: center; /* Center-align the text */
   }
   .about-section h1 {
-    font-size: 1.2rem;
-    text-align: center;
+    font-size: 7rem;
+    margin-bottom: 0px;
   }
   .about-section p {
-    font-size: 0.9rem;
-    line-height: 1.4;
-    text-align: justify;
+    font-size: 1.2rem;
+    line-height: 1.5;
+    text-align: center;
+    margin-top: 0;
   }
 
   /* Portfolio Section Styling */
@@ -753,15 +773,31 @@ input, textarea {
     justify-content: center;
   }
   .main-tabs button {
-    font-size: 0.9rem;
+    font-size: 1.25rem;
     padding: 0.5rem;
   }
   .grid {
     grid-template-columns: repeat(auto-fit, minmax(80px, 1fr));
-    gap: 0.5rem;
+    gap: 1.5rem;
+    font-size: 1.25rem;
+    justify-content: center;
   }
   .logo-work-display img {
-    max-width: 100px;
+    max-width: 150px;
+  }
+  #layout-grid.grid {
+    display: grid; /* Use grid layout */
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); /* Responsive columns */
+    gap: 1rem; /* Add spacing between grid items */
+    padding: 0 1rem 1rem 1rem;
+    width: 100%; /* Ensure the grid takes up the full width */
+    margin: 0 auto; /* Center the grid */
+  }
+  #layout-grid.grid a {
+    padding: 0.5rem; /* Add padding to each link */
+    text-align: center; /* Center-align the text */
+    max-width: 100%; /* Ensure links take up the full width of their grid cell */
+    display: block; /* Treat links as block elements */
   }
 
   /* Project Container Styling */
@@ -776,7 +812,8 @@ input, textarea {
     text-align: center;
   }
   .project-header {
-    font-size: 1.2rem;
+    font-size: 1.5rem;
+    padding-bottom: 1rem;
   }
   .project-description {
     font-size: 0.8rem;
@@ -787,13 +824,69 @@ input, textarea {
     float: none;
     margin: 10px 0;
   }
+  #t2p2r3b2.project-secondary-imageblock {
+    width: 100%;
+    display: block;
+    padding-top: 0px; /* Add space above the secondary images */
+    box-sizing: border-box;
+    float: none;
+  }
+  #t2p2r4b1.project-secondary-imageblock, #t2p2r4b2.project-secondary-imageblock {
+    padding-top: 0px; /* Add space above the secondary images */
+    margin-top: 0;
+  }
+  #t2p2r7b1.project-main-imageblock, #t2p2r7b2.project-secondary-imageblock {
+    width: 100%;
+    display: block;
+    margin: 10px 0; /* Add space above the image block */
+    box-sizing: border-box;
+    float: none;
+  }
+  #t2p3r2b2.project-secondary-imageblock {
+    width: 100%;
+    display: block;
+    padding-top: 0px; /* Add space above the secondary images */
+    box-sizing: border-box;
+    float: none;
+  }
+  #t2p4r2b1.project-main-imageblock, #t2p4r2b2.project-main-imageblock {
+    width: 100%;
+    display: block;
+    margin: 10px 0; /* Add space above the image block */
+    box-sizing: border-box;
+    float: none;
+  }
+  #t2p4r3b1.project-secondary-imageblock {
+    width: 100%;
+    display: block;
+    padding-top: 0px; /* Add space above the secondary images */
+    box-sizing: border-box;
+    float: none;
+  }
+  #t2p5r2b1.project-main-imageblock {
+    width: 100%;
+    display: block;
+    margin: 10px 0; /* Add space above the image block */
+    box-sizing: border-box;
+    float: none;
+  }
+  #t3p1r2b1.project-main-imageblock, #t3p1r2b2.project-main-imageblock {
+    width: 100%;
+    display: block;
+    margin: 10px 0; /* Add space above the image block */
+    box-sizing: border-box;
+    float: none;
+  }
+  .modal-content{
+    padding-top: 10rem;
+  }
 
   /* Footer Styling */
   footer {
     padding: 20px 10px;
   }
   #contact-text h2 {
-    font-size: 1.2rem;
+    font-size: 2rem;
   }
   #contact-text.text-container {
     width: 90%;
