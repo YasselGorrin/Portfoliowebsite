@@ -1,0 +1,907 @@
+* {
+  box-sizing: border-box;
+}
+body {
+    margin: 0;
+    overflow-x: hidden; /* Prevent horizontal scrolling */;
+    position: relative; /* Required for the pseudo-element */
+    height: 100%; /* Ensure the body covers the full height */
+}
+body::before {
+  content: "";
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgb(0,0,0,0.9);
+  z-index: -1; /* Ensure it stays behind other content */
+  pointer-events: none; /* Prevent interaction with the overlay */
+}
+html {
+    scroll-behavior: smooth;
+    background-image: url("../images/background2.jpg");
+    background-size:contain; /* Cover the entire viewport */
+    background-position: center; /* Center the background image */
+    position: relative; /* Required for the pseudo-element */
+    height: 100%; /* Ensure the body covers the full height */
+}
+
+/* Nav Bar Styling */
+.navbar {
+    display: flex;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 1000;
+    left: 0;
+    justify-content: center;
+    align-items: center;
+    background-color: transparent;
+    padding: 15px 20px;
+    margin-top: 10px;
+    height: 80px;
+    transition: transform 0.3s ease-in-out; /* Smooth hide/show effect */
+}
+.navbar.hidden {
+    transform: translateY(-150%); /* Hide the navbar by moving it up */
+}
+.logo {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding-top: 20px;
+}
+.logo img {
+    width: 15vw;
+    padding-left: 30px;
+    padding-top: 5px;
+}
+.nav-links {
+    display: flex;
+    list-style: none;
+    font-family: "superclarendon", serif;
+    font-weight: 700;
+    font-style: italic;;
+    transition: transform 0.3s ease-in-out;
+}
+.nav-links li {
+    display: inline;
+    margin-left: 20px;
+}
+.nav-links a {
+    color: rgb(255, 255, 255);
+    text-decoration: none;
+    padding: 10px 15px;
+    font-size: 1.125rem;
+    border-radius: 5px;
+    transition: background 0.3s;
+}
+.nav-links a:hover {
+    background: grey;
+}
+
+
+/* Main Content Styling */
+.main-content {
+    display: flex; /* Use flexbox for layout */
+    justify-content: space-between; /* Add space between the carousel and the about section */
+    align-items: center; /* Vertically align the items */
+    padding: 20px; /* Optional: Add padding around the container */
+    padding-bottom: 50px;
+    margin-top: 125px; /* Add space below the navbar */
+}
+.main-content-row {
+  display: flex; /* Use Flexbox to align items in a row */
+  justify-content: space-between; /* Add space between the carousel and the About Me section */
+  align-items: center; /* Align items vertically */
+  gap: 20px; /* Add spacing between the two sections */
+  padding: 20px; /* Add padding around the row */
+  box-sizing: border-box;
+}
+
+/* Carousel Styling */
+.carousel-container {
+  flex: 1; /* Allow the carousel to take up equal space */
+  max-width: 50%; /* Limit the width of the carousel */
+  height: 500px;
+  padding-left: 60px;
+  padding-right: 50px;
+}
+.carousel {
+  position: relative;
+  overflow: hidden;
+  width: 100%;
+  height: 100%;
+}
+.carousel-images {
+    display: flex;
+    transition: transform 0.5s ease-in-out;
+    height: 100%; /* Match the height of the carousel */
+}
+.carousel-item {
+    flex: 0 0 100%;
+}
+.carousel-item img {
+    width: 100%;
+    height: 100%; /* Adjust to fit the new carousel size */
+    object-fit: cover;
+    display: block;
+}
+.carouselb {
+    position: absolute;
+    top: 50%; /* Bring buttons closer to the center */
+    transform: translateY(-50%);
+    background-color: transparent;
+    color: white;
+    border: none;
+    padding: 15px 20px; /* Increase padding to make buttons larger */
+    font-size: 4rem; /* Increase font size for larger icons */
+    cursor: pointer;
+    z-index: 10;
+}
+#prevBtn {
+    left: 10px /* Adjust horizontal position */
+}
+#nextBtn {
+    right: 5px; /* Adjust horizontal position */
+}
+
+
+/* About Section Styling */
+.about-section {
+  flex: 1; /* Allow the About Me section to take up equal space */
+  max-width: 50%; /* Limit the width of the About Me section */
+  padding-right: 60px; /* Add padding to the right */
+}
+.about-section-content {
+    width: 100%;
+    text-align: left; 
+    margin-right: 5px; /* Add space between the text and the right border of the website */
+}
+.about-section h1 {
+    font-family: "superclarendon", serif;
+    font-weight: 900;
+    font-style: italic;
+    font-size: 10rem;
+    margin-top: -15px;
+    margin-bottom: -50px;
+    color: #ffca15;
+}
+.about-section p {
+    font-family: "superclarendon", serif;
+    font-weight: 400;
+    font-style: normal;
+    font-size: 1.2rem;
+    line-height: 1.5;
+    color: #ffffff;
+}
+section.about-section div.about-section-content p b#R{
+  font-family: "superclarendon", serif;
+  font-weight: 600;
+  font-size: 1.2rem;
+  line-height: 1.5;
+  color: #f04e4a;
+}
+section.about-section div.about-section-content p b#Y{
+  font-family: "superclarendon", serif;
+  font-weight: 600;
+  font-size: 1.2rem;
+  line-height: 1.5;
+  color: #ffca15;
+}
+section.about-section div.about-section-content p b#B{
+  font-family: "superclarendon", serif;
+  font-weight: 600;
+  font-size: 1.2rem;
+  line-height: 1.5;
+  color: #0068ca;
+}
+
+
+/* Portfolio Section Styling */
+#portfolio-nav {
+    background: #ffffff;
+    color: #000000;
+    padding-left: 6rem;
+    padding-right: 6rem; 
+    padding-top: 5rem; 
+    padding-bottom: 5rem;
+    max-width: 100%; /* Optional: Limit the width for better alignment */
+    margin-top: 50px; /* Add space below the navbar */
+  }
+  /* Main Tabs Styling */
+  .main-tabs {
+    display: flex;
+    gap: 1rem;
+    margin-bottom: 1rem;
+    border-bottom: 2.5px solid #000000; /* Add a line below the main tabs */
+    padding-bottom: 0.5rem; /* Add some spacing between the tabs and the line */
+  }
+  .main-tabs button {
+    background: transparent;
+    border: none;
+    padding: 0.5rem 1rem;
+    color: #000000;
+    cursor: pointer;
+    font-family: "superclarendon", serif;
+    font-weight: 700;
+    font-style: italic;
+    font-size: 1.5rem;
+  }
+  .main-tabs button:hover {
+    color: #f04e4a;
+    background: transparent;
+  }
+  .main-tabs button.active {
+    background: transparent;
+    color: #f04e4a;
+  }
+  /* Sub Tabs Styling */
+  .sub-tabs {
+    border-bottom: 2.5px solid #000000; /* Add a line below the sub-tabs */
+    padding-bottom: 0.5rem; /* Add some spacing between the tabs and the line */
+    margin-bottom: 1.5rem; /* Optional: Add spacing below the sub-tabs */
+    font-family: "superclarendon", serif;
+    font-weight: 700;
+    font-style: italic;
+    font-size: 1.5rem
+  }
+  .sub-tabs .tab-content {
+    display: none;
+  }
+  .sub-tabs .tab-content.active {
+    display: block;
+  }
+  .grid {
+    display: flex;
+    gap: 4rem;
+    padding: 0 13px 13px 13px;
+    border-bottom: 2.5px solid #000000; /* Add a line below the sub-tabs */
+  }
+  #layout-grid.grid {
+    display: block;
+    gap: 4rem;
+    min-width: 200px; /* Ensure the grid has a minimum width */
+    padding: 0 13px 13px 13px;
+    border-bottom: 2px solid #000000; /* Add a line below the sub-tabs */
+    font-size: 1.25rem;
+  }
+  #layout-grid.grid a {
+    padding-right: 1rem;
+    max-width: 200px; /* Limit the width of each link */
+    display: inline-block; /* Allow links to be treated as blocks */
+  }
+  .grid a {
+    color: #000000;
+    text-decoration: none;
+  }
+  .grid a:hover {
+    color: #ffca15;
+  }
+  /* Logo Work Display Styling */
+  .logo-work-display {
+    padding-top: 13px;
+    padding-left: 22.5px;
+    padding-right: 22.5px;
+  }
+  .logo-work-display img {
+    margin: 10px;
+    max-width: 215px;
+  }
+  /* Project Container Styling */
+  .project-container {
+    display: none;
+  }
+  .project-container img {
+    max-width: 100%;
+    height: auto;
+    margin-bottom: 10px;
+  }
+ .project-container.active {
+    margin-top: 10px;
+    padding: 20px 13px 10px 13px;
+    width: 100%; /* Make the container take up the full width */
+    display: table;
+    gap: 20px; /* Add space between the image and text */
+  }
+
+  /* Project Header and Description Styling */
+  .header-row {
+    width: 100%; /* Ensure the header row takes up the full width */
+    height: auto;
+    padding-bottom: 10px; /* Add padding to the header row */
+    box-sizing: border-box; /* Include padding and border in the element's total width */
+  }
+  .header-row::after {
+    content: "";
+    display: block;
+    clear: both;
+  }
+  .project-headerblock{
+    display: block;
+    width: 50%; /* Limit the width of the text blocks */
+    float: left; /* Align the header block to the left */
+    box-sizing: border-box; /* Include padding and border in the element's total width */
+  }
+  .project-descriptionblock {
+    display: block;
+    width: 50%; /* Limit the width of the text blocks */
+    box-sizing: border-box; /* Include padding and border in the element's total width */
+    position: relative; /* Position relative to allow absolute positioning of child elements */
+    float: right;
+  }
+  .project-header {
+    font-size: 2rem;
+    color: #ffffff;
+    margin: 0;
+    color: #000000;
+  }
+  .project-description {
+    font-size: 0.9rem;
+    color: #ffffff;
+    line-height: 1.5;
+    margin-top: 0;
+    font-family: "superclarendon", serif;
+    font-weight: 500;
+    font-style: normal;
+    color: #000000;
+  }
+  .image-row {
+    width: 100%; /* Ensure the header row takes up the full width */
+    height: auto;
+    box-sizing: border-box; /* Include padding and border in the element's total width */
+  }
+  .image-row::after{
+    content: "";
+    display: table;
+    clear: both;
+  }
+  .project-main-imageblock {
+    width: 48.5%;
+    display: block;
+    margin: 20px 0 0 0; /* Add space above the image block */
+    box-sizing: border-box;
+    float: left;
+  }
+  .project-secondary-imageblock {
+    width: 47.5%;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr); /* Create 2 equal columns */
+    grid-template-rows: repeat(2, 1fr); /* Create 2 equal rows */
+    gap: 20px; /* Add space between the images */
+    padding-top: 20px; /* Add space above the secondary images */
+    box-sizing: border-box;
+    float: right;
+  }
+/* Layout Projects */
+  /*Fisherman Project*/
+  #t2p1r4b1.project-main-imageblock {
+    width: 23.7%;
+    display: flex;
+    margin: 10px 0 0 0;
+    gap: 20px; /* Add space between the images */
+    box-sizing: border-box;
+  }
+  #t2p1r3.header-row {
+    width: 100%; /* Ensure the header row takes up the full width */
+    height: auto;
+    padding-top: 15px; /* Add padding to the header row */
+    padding-bottom: 10px; /* Add padding to the header row */
+    box-sizing: border-box; /* Include padding and border in the element's total width */
+  }
+  /* Sub-Ordinary Project*/
+  #t2p2r2.header-row {
+    border-top: 2px solid #ccc;
+    padding-top: 20px;
+  }
+  #t2p2r3b2.project-secondary-imageblock {
+    width: 47.5%;
+    display: block;
+    gap: 20px; /* Add space between the images */
+    padding-top: 20px; /* Add space above the secondary images */
+    box-sizing: border-box;
+    float: right;
+  }
+  #t2p2r4b1.project-secondary-imageblock {
+    width: 47.5%;
+    display: block;
+    gap: 20px; /* Add space between the images */
+    padding-top: 20px; /* Add space above the secondary images */
+    box-sizing: border-box;
+    float: left;
+  }
+  #t2p2r4b2.project-secondary-imageblock {
+    width: 47.5%;
+    display: block;
+    gap: 20px; /* Add space between the images */
+    padding-top: 20px; /* Add space above the secondary images */
+    box-sizing: border-box;
+    float: right;
+  }
+  #t2p2r7b1.project-main-imageblock {
+    width: 55%;
+    display: block;
+    margin: 20px 0 0 0; /* Add space above the image block */
+    box-sizing: border-box;
+    float: left;
+  }
+  #t2p2r7b2.project-secondary-imageblock {
+    width: 40%;
+    display: block;
+    padding-top: 20px; /* Add space above the secondary images */
+    box-sizing: border-box;
+    float: right;
+  }
+  #t2p3r2b2.project-secondary-imageblock {
+    width: 47.5%;
+    display: block;
+    padding-top: 20px; /* Add space above the secondary images */
+    box-sizing: border-box;
+    float: right;
+  }
+  /* FF Providence Campaign Project */
+  #t2p4r2b1.project-main-imageblock {
+    width: 49.5%;
+    display: block;
+    margin: 20px 0 0 0; /* Add space above the image block */
+    box-sizing: border-box;
+    float: left;
+  }
+  #t2p4r2b2.project-main-imageblock {
+    width: 49.5%;
+    display: block;
+    margin: 20px 0 0 0; /* Add space above the image block */
+    box-sizing: border-box;
+    float: right;
+  }
+  #t2p4r3b1.project-secondary-imageblock {
+    display: flex; /* Align images in a row */
+    justify-content: space-between; /* Distribute images evenly */
+    align-items: center; /* Align images vertically */
+    gap: 10px; /* Add spacing between images */
+    width: 100%; /* Make the row take up the full width */
+    box-sizing: border-box; /* Include padding and border in width calculations */
+    padding: 0;
+  }
+  #t2p4r3b1.project-secondary-imageblock img{
+    flex: 1; /* Allow images to grow and take up equal space */
+    max-width: 100%; /* Prevent images from exceeding their container */
+    height: 400px; /* Set a fixed height for all images */
+    object-fit: cover; /* Crop the image to fit within the height */
+  }
+  /* Personality Design Project */
+  #t2p5r2b1.project-main-imageblock {
+    width: 50%;
+    display: block;
+    margin: 20px 0 0 0; /* Add space above the image block */
+    box-sizing: border-box;
+    float: left;
+  }
+  /* Hand Written Type Project */
+  #t2p6r2b2.project-secondary-imageblock {
+    width: 47.5%;
+    display: grid;
+    grid-template-columns: repeat(1, 1fr); /* Create 2 equal columns */
+    grid-template-rows: repeat(2, 1fr); /* Create 2 equal rows */
+    gap: 20px; /* Add space between the images */
+    padding-top: 20px; /* Add space above the secondary images */
+    box-sizing: border-box;
+    float: right;
+  }
+  #t2p6r4b1.project-main-imageblock {
+    width: 48.5%;
+    display: block;
+    margin: 20px 0 0 0; /* Add space above the image block */
+    box-sizing: border-box;
+    float: left;
+  }
+  #t2p6r4b2.project-main-imageblock {
+    width: 48.5%;
+    display: block;
+    margin: 20px 0 0 0; /* Add space above the image block */
+    box-sizing: border-box;
+    float: right;
+  }
+
+/* Web Design Projects */
+  /*Sub-Ordinary Website*/
+  #t3p1r2b1.project-main-imageblock {
+    width: 70%;
+    display: block;
+    margin: 20px 0 0 0; /* Add space above the image block */
+    box-sizing: border-box;
+    float: left;
+  }
+  #t3p1r2b2.project-main-imageblock {
+    width: 23.8%;
+    display: block;
+    margin: 20px 0 0 0; /* Add space above the image block */
+    box-sizing: border-box;
+    float: right;
+  }
+
+/* Modal Styles */
+.modal {
+  display: none; /* Hidden by default */
+  position: fixed;
+  z-index: 1000; /* Ensure it appears above other content */
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color: rgba(0, 0, 0, 0.8); /* Black background with opacity */
+}
+.modal-content {
+  padding-top: 50px;
+  margin: auto;
+  display: block;
+  max-width: 90%;
+  max-height: 90%;
+  animation: zoomIn 0.3s; /* Add a zoom-in animation */
+}
+@keyframes zoomIn {
+  from {
+    transform: scale(0.8);
+    opacity: 0;
+  }
+  to {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+.close {
+  position: absolute;
+  top: 20px;
+  right: 35px;
+  color: white;
+  font-size: 40px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: color 0.3s;
+}
+.close:hover,
+.close:focus {
+  color: #bbb;
+}
+#caption {
+  margin: auto;
+  display: block;
+  text-align: center;
+  color: white;
+  padding: 10px 20px;
+  font-size: 18px;
+  font-family: "superclarendon", serif;
+  font-weight: 700;
+  font-style: italic;
+}
+
+
+/* Footer styles */
+footer {
+    background-color: #0068ca;
+    color: white;
+    text-align: center;
+    padding: 90px 20px;
+    font-family: "superclarendon", serif;
+    font-weight: 700;
+    font-style: italic;;
+  }
+#contact-text h2 {
+    font-size: 2rem;
+    margin-bottom: 20px;
+    color: #ffffff;
+  }
+#contact-text.text-container {
+    width: 350px ;
+    margin: 0 auto;
+    text-align: center;
+  }
+#contact-text a {
+    color: #ffffff;
+    text-decoration: none;
+    font-size: 1.25rem;
+  }
+#contact-text a:hover {
+  color: rgb(255, 40, 28);
+  }
+form {
+    display: flex;
+    flex-direction: column;
+    max-width: 400px;
+    margin: 20px auto;
+  } 
+input, textarea {
+    margin: 10px 0;
+    padding: 10px;
+    width: 100%;
+  }
+.contactb {
+    background-color: #ffca15;
+    color: white;
+    padding: 10px;
+    border: none;
+    cursor: pointer;
+  }
+.contactb:hover {
+    background-color: #b9910f;
+  }
+
+
+/* Responsive Design */
+/* Media Query for Phones */
+@media (max-width: 768px) {
+  /* Navbar Styling */
+  .navbar {
+    display: flex;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 1000;
+    justify-content: center;
+    align-items: center;
+    background-color: transparent;
+    height: 50px;
+    transition: transform 0.3s ease-in-out;
+  }
+  .navbar.hidden {
+    transform: translateY(-200%);
+  }
+  .logo {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding-left: 8rem;
+    padding-top: 5%;
+  }
+  .logo img {
+    width: 50%;
+    padding: 0%;
+  }
+  .nav-links {
+    display: none;
+    list-style: none;
+    font-family: "superclarendon", serif;
+    font-weight: 700;
+    font-style: italic;
+  }
+  .nav-links li {
+    margin-left: 10px;
+  }
+  .nav-links a {
+    color: white;
+    text-decoration: none;
+    padding: 5px;
+    font-size: 0.9rem;
+    border-radius: 5px;
+  }
+  .nav-links a:hover {
+    background: grey;
+  }
+
+  /* Main Content Styling */
+  .main-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px;
+    margin-top: 80px;
+  }
+  .main-content-row {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    padding: 0px;
+  }
+
+  /* Carousel Styling */
+  .carousel-container {
+    width: 100%;
+    max-width: 100%;
+    height: 25rem;
+    padding: 0; /* Remove padding */
+    margin: 0;
+  }
+  .carousel {
+    width: 100%;
+    height: 100%;
+    position: relative;
+    overflow: hidden;
+    margin: 0;
+  }
+  .carousel-images {
+    display: flex;
+    transition: transform 0.5s ease-in-out;
+    width: 100%;
+    height: 100%;
+  }
+  .carousel-item img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+  }
+  .carouselb {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: transparent;
+    color: white;
+    border: none;
+    font-size: 2rem;
+    cursor: pointer;
+    z-index: 10;
+  }
+  #prevBtn {
+    left: 5px;
+  }
+  #nextBtn {
+    right: 5px;
+  }
+
+  /* About Section Styling */
+  .about-section {
+    width: 100vw;
+    max-width: 100%;
+    padding: 10px;
+    margin: 0;
+  }
+  .about-section-content {
+    width: 100%; /* Ensure the content takes up the full width */
+    text-align: center; /* Center-align the text */
+  }
+  .about-section h1 {
+    font-size: 7rem;
+    margin-bottom: 0px;
+  }
+  .about-section p {
+    font-size: 1.2rem;
+    line-height: 1.5;
+    text-align: center;
+    margin-top: 0;
+  }
+
+  /* Portfolio Section Styling */
+  #portfolio-nav {
+    padding: 1rem;
+    margin: 0 auto;
+    max-width: 100%;
+  }
+  .main-tabs {
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+  .main-tabs button {
+    font-size: 1.25rem;
+    padding: 0.5rem;
+  }
+  .grid {
+    grid-template-columns: repeat(auto-fit, minmax(80px, 1fr));
+    gap: 1.5rem;
+    font-size: 1.25rem;
+    justify-content: center;
+  }
+  .logo-work-display img {
+    max-width: 9rem;
+  }
+  #layout-grid.grid {
+    display: grid; /* Use grid layout */
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); /* Responsive columns */
+    gap: 1rem; /* Add spacing between grid items */
+    padding: 0 1rem 1rem 1rem;
+    width: 100%; /* Ensure the grid takes up the full width */
+    margin: 0 auto; /* Center the grid */
+  }
+  #layout-grid.grid a {
+    padding: 0.5rem; /* Add padding to each link */
+    text-align: center; /* Center-align the text */
+    max-width: 100%; /* Ensure links take up the full width of their grid cell */
+    display: block; /* Treat links as block elements */
+  }
+
+  /* Project Container Styling */
+  .project-container.active {
+    display: block;
+    padding: 10px;
+  }
+  .project-headerblock,
+  .project-descriptionblock {
+    width: 100%;
+    float: none;
+    text-align: center;
+  }
+  .project-header {
+    font-size: 1.5rem;
+    padding-bottom: 1rem;
+  }
+  .project-description {
+    font-size: 0.8rem;
+  }
+  .project-main-imageblock,
+  .project-secondary-imageblock {
+    width: 100%;
+    float: none;
+    margin: 10px 0;
+  }
+  #t2p2r3b2.project-secondary-imageblock {
+    width: 100%;
+    display: block;
+    padding-top: 0px; /* Add space above the secondary images */
+    box-sizing: border-box;
+    float: none;
+  }
+  #t2p2r4b1.project-secondary-imageblock, #t2p2r4b2.project-secondary-imageblock {
+    padding-top: 0px; /* Add space above the secondary images */
+    margin-top: 0;
+  }
+  #t2p2r7b1.project-main-imageblock, #t2p2r7b2.project-secondary-imageblock {
+    width: 100%;
+    display: block;
+    margin: 10px 0; /* Add space above the image block */
+    box-sizing: border-box;
+    float: none;
+  }
+  #t2p3r2b2.project-secondary-imageblock {
+    width: 100%;
+    display: block;
+    padding-top: 0px; /* Add space above the secondary images */
+    box-sizing: border-box;
+    float: none;
+  }
+  #t2p4r2b1.project-main-imageblock, #t2p4r2b2.project-main-imageblock {
+    width: 100%;
+    display: block;
+    margin: 10px 0; /* Add space above the image block */
+    box-sizing: border-box;
+    float: none;
+  }
+  #t2p4r3b1.project-secondary-imageblock {
+    width: 100%;
+    display: block;
+    padding-top: 0px; /* Add space above the secondary images */
+    box-sizing: border-box;
+    float: none;
+  }
+  #t2p5r2b1.project-main-imageblock {
+    width: 100%;
+    display: block;
+    margin: 10px 0; /* Add space above the image block */
+    box-sizing: border-box;
+    float: none;
+  }
+  #t3p1r2b1.project-main-imageblock, #t3p1r2b2.project-main-imageblock {
+    width: 100%;
+    display: block;
+    margin: 10px 0; /* Add space above the image block */
+    box-sizing: border-box;
+    float: none;
+  }
+  .modal-content{
+    padding-top: 10rem;
+  }
+
+  /* Footer Styling */
+  footer {
+    padding: 20px 10px;
+  }
+  #contact-text h2 {
+    font-size: 2rem;
+  }
+  #contact-text.text-container {
+    width: 90%;
+  }
+  form {
+    max-width: 100%;
+  }
+  .contactb {
+    padding: 10px;
+    font-size: 1rem;
+  }
+}
+/* Media Query for Smaller Screens */
+@media (max-width: 412px) {
+  .logo-work-display img {
+    max-width: 8rem;
+  }
+}
