@@ -899,3 +899,9 @@ input, textarea {
     font-size: 1rem;
   }
 }
+/* Media Query for Smaller Screens */
+@media (max-width: 412px) {
+  .logo-work-display img {
+    max-width: 8rem;
+  }
+}
