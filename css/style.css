@@ -783,7 +783,7 @@ input, textarea {
     justify-content: center;
   }
   .logo-work-display img {
-    max-width: 150px;
+    max-width: 9rem;
   }
   #layout-grid.grid {
     display: grid; /* Use grid layout */
